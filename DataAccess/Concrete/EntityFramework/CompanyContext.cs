@@ -15,12 +15,18 @@ namespace DataAccess.Concrete.EntityFramework
         }
 
         public virtual DbSet<Resolution> Resolutions { get; set; }
-
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-
             base.OnConfiguring(optionsBuilder);
-            optionsBuilder.UseSqlServer("Data Source=DESKTOP-7ISV675\\SQLEXPRESS;Initial Catalog=CompanyManagement;Integrated Security=True;TrustServerCertificate=True");
+            optionsBuilder.UseSqlServer("Data Source=DESKTOP-7ISV675\\SQLEXPRESS;Initial Catalog=CompanyManagement;Integrated Security=True;TrustServerCertificate=True",
+                b => b.MigrationsAssembly("WebAPI"));
         }
+
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+
+        //    base.OnConfiguring(optionsBuilder);
+        //    optionsBuilder.UseSqlServer("Data Source=DESKTOP-7ISV675\\SQLEXPRESS;Initial Catalog=CompanyManagement;Integrated Security=True;TrustServerCertificate=True");
+        //}
     }
 }
