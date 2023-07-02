@@ -1,5 +1,5 @@
 ﻿using Business.Abstract;
-using DataAccess.Abstract;
+using DataAccess.Abstract.IEntityFramework;
 using Entities.Concrete;
 using Entities.DTOs;
 using System;
@@ -14,6 +14,7 @@ namespace Business.Concrete
     {
 
         private readonly IResolutionDal _resolutionDal;
+
         public ResolutionService(IResolutionDal _resolutionDal)
         {
             this._resolutionDal = _resolutionDal;

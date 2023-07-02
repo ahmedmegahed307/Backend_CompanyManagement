@@ -4,6 +4,8 @@ using DataAccess.InfraStructure;
 using Business.Abstract;
 using Business.Concrete;
 using DataAccess.Abstract;
+using DataAccess.Concrete;
+using DataAccess.Abstract.IEntityFramework;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -25,6 +27,10 @@ builder.Services.AddCors();
 //Dependency Injection
 builder.Services.AddScoped<IResolutionService, ResolutionService>();
 builder.Services.AddScoped<IResolutionDal, ResolutionDal>();
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+
+
 
 var app = builder.Build();
 

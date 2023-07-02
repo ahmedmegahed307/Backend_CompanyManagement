@@ -6,10 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataAccess.Abstract
+namespace DataAccess.Abstract.IEntityFramework
 {
-    public interface IResolutionDal
+    public interface IResolutionDal : IBaseRepository<Resolution>
     {
-        List<Resolution> GetAll();
+
     }
 }

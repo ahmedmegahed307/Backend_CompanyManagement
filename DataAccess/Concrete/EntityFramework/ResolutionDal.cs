@@ -1,4 +1,4 @@
-﻿using DataAccess.Abstract;
+﻿using DataAccess.Abstract.IEntityFramework;
 using Entities.Concrete;
 using Entities.DTOs;
 using System;
@@ -9,16 +9,8 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public class ResolutionDal : IResolutionDal
+    public class ResolutionDal : BaseRepository<Resolution,CompanyContext> , IResolutionDal
     {
-        private readonly CompanyContext _context;
-        public ResolutionDal(CompanyContext context)
-        {
-            this._context = context;
-        }
-        public List<Resolution> GetAll()
-        {
-            return _context.Resolutions.ToList();
-        }
+        
     }
 }

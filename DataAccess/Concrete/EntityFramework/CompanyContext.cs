@@ -10,6 +10,10 @@ namespace DataAccess.Concrete.EntityFramework
 {
     public class CompanyContext :DbContext
     {
+        public CompanyContext()
+        {
+            
+        }
         public CompanyContext(DbContextOptions<CompanyContext> options) : base(options)
         {
         }
@@ -22,11 +26,6 @@ namespace DataAccess.Concrete.EntityFramework
                 b => b.MigrationsAssembly("WebAPI"));
         }
 
-        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        //{
-
-        //    base.OnConfiguring(optionsBuilder);
-        //    optionsBuilder.UseSqlServer("Data Source=DESKTOP-7ISV675\\SQLEXPRESS;Initial Catalog=CompanyManagement;Integrated Security=True;TrustServerCertificate=True");
-        //}
+       
     }
 }
