@@ -14,7 +14,7 @@ namespace DataAccess.Concrete
     public class BaseRepository<TEntity,TContext> : IBaseRepository<TEntity> where TEntity : class,new()
         where TContext : DbContext, new()
     {
-        
+          
 
         public List<TEntity> GetAll(Expression<Func<TEntity, bool>> filter = null)
         {
@@ -25,6 +25,42 @@ namespace DataAccess.Concrete
                     : context.Set<TEntity>().Where(filter).ToList();
             }
         }
-        
+        public void Add(TEntity entity)
+        {
+            using (TContext context = new TContext())
+            {
+                var addedEntity = context.Entry(entity);
+                addedEntity.State = EntityState.Added;
+                context.SaveChanges();
+            }
+        }
+
+        public void Delete(TEntity entity)
+        {
+            using (TContext context = new TContext())
+            {
+                var deletedEntity = context.Entry(entity);
+                deletedEntity.State = EntityState.Deleted;
+                context.SaveChanges();
+            }
+        }
+
+        public TEntity Get(Expression<Func<TEntity, bool>> filter)
+        {
+            using (TContext context = new TContext())
+            {
+                return context.Set<TEntity>().FirstOrDefault(filter);
+            }
+        }
+        public void Update(TEntity entity)
+        {
+            using (TContext context = new TContext())
+            {
+                var updatedEntity = context.Entry(entity);
+                updatedEntity.State = EntityState.Modified;
+                context.SaveChanges();
+            }
+        }
+
     }
 }
