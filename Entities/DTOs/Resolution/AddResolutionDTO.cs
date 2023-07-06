@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Entities.DTOs
+namespace Entities.DTOs.Resolution
 {
-    public class ResolutionListDTO
+    public class AddResolutionDTO
     {
-        public int Id { get; set; }
         public string Name { get; set; }
     }
 }

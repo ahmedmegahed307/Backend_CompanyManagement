@@ -1,7 +1,9 @@
-﻿using Business.Abstract;
+﻿using AutoMapper;
+using Business.Abstract;
+using Business.Helper.AutoMapper;
 using DataAccess.Abstract.IEntityFramework;
 using Entities.Concrete;
-using Entities.DTOs;
+using Entities.DTOs.Resolution;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,14 +16,43 @@ namespace Business.Concrete
     {
 
         private readonly IResolutionDal _resolutionDal;
+        private readonly IMapper _mapper;
 
-        public ResolutionService(IResolutionDal _resolutionDal)
+        public ResolutionService(IResolutionDal _resolutionDal, IMapper mapper)
         {
             this._resolutionDal = _resolutionDal;
+            this._mapper = mapper;
         }
-        public List<Resolution> GetAllResolutions()
+
+        public void AddResolution(AddResolutionDTO resolutionDTO)
         {
-            return _resolutionDal.GetAll();
+            var addedResolution = _mapper.Map<Resolution>(resolutionDTO);
+
+            addedResolution.CreatedAt = DateTime.Now;
+            addedResolution.LastUpdatedAt = DateTime.Now;
+
+            _resolutionDal.Add(addedResolution);
+        }
+
+        public void DeleteResolution(int id)
+        {
+            var resolution = _resolutionDal.Get(a => a.Id == id);
+            _resolutionDal.Delete(resolution);
+
+        }
+
+        public List<ResolutionListDTO> GetAllResolutions()
+        {
+            var resolutions = _resolutionDal.GetAll();
+            var resolutionDTOs = _mapper.Map<List<ResolutionListDTO>>(resolutions);
+            return resolutionDTOs;
+        }
+
+        public void UpdateResolution(UpdateResolutionDTO resolutionDTO)
+        {
+            var existingResolution = _resolutionDal.Get(a => a.Id == resolutionDTO.Id);
+            existingResolution.Name = resolutionDTO.Name;
+            _resolutionDal.Update(existingResolution);
         }
     }
 }

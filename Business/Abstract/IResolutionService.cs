@@ -1,5 +1,5 @@
 ﻿using Entities.Concrete;
-using Entities.DTOs;
+using Entities.DTOs.Resolution;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +11,9 @@ namespace Business.Abstract
     public interface IResolutionService
     {
 
-        List<Resolution> GetAllResolutions();
+        List<ResolutionListDTO> GetAllResolutions();
+        void AddResolution(AddResolutionDTO resolutionDTO);
+        void DeleteResolution(int id);
+        void UpdateResolution(UpdateResolutionDTO resolutionDTO);
     }
 }

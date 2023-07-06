@@ -1,6 +1,7 @@
 ﻿using Business.Abstract;
 using DataAccess.Concrete.EntityFramework;
 using Entities.Concrete;
+using Entities.DTOs.Resolution;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -20,12 +21,37 @@ namespace WebAPI.Controllers.Settings
         }
 
         [HttpGet]
-        [Route("ResolutionList")]
-        public List<Resolution> GetAllResolutions()
+        [Route("resolutions")]
+        public List<ResolutionListDTO> GetAllResolutions()
         {
             return _resolutionService.GetAllResolutions();
 
         }
+
+        [HttpPost]
+        [Route("add")]
+        public void AddResolution(AddResolutionDTO resolutionDTO)
+        {
+            _resolutionService.AddResolution(resolutionDTO);
+            
+
+        }
+
+        [HttpPost]
+        [Route("UpdateResolution")]
+        public void UpdateResolution(UpdateResolutionDTO resolutionDTO)
+        {
+            _resolutionService.UpdateResolution(resolutionDTO);
+
+        }
+        [HttpPost]
+        [Route("DeleteResolution")]
+        public void DeleteResolution(int id)
+        {
+            _resolutionService.DeleteResolution(id);
+
+        }
+
 
 
 
