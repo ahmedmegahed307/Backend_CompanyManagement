@@ -19,6 +19,15 @@ namespace DataAccess.Concrete.EntityFramework
         }
 
         public virtual DbSet<Resolution> Resolutions { get; set; }
+        public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<Job> Jobs { get; set; }
+        public virtual DbSet<Client> Clients { get; set; }
+        public virtual DbSet<JobType> JobTypes { get; set; }
+        public virtual DbSet<JobSubType> JobSubTypes { get; set; }
+        public virtual DbSet<Session> Sessions { get; set; }
+        public virtual DbSet<Role> Roles { get; set; }
+        public virtual DbSet<UserRole> UserRoles { get; set; }
+        public virtual DbSet<Engineer> Engineers { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);

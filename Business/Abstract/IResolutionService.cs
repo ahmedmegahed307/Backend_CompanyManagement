@@ -14,6 +14,6 @@ namespace Business.Abstract
         List<ResolutionListDTO> GetAllResolutions();
         void AddResolution(AddResolutionDTO resolutionDTO);
         void DeleteResolution(int id);
-        void UpdateResolution(UpdateResolutionDTO resolutionDTO);
+        void UpdateResolution(int id,UpdateResolutionDTO updatedResolution);
     }
 }

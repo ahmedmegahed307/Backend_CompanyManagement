@@ -7,14 +7,11 @@ using System.Threading.Tasks;
 
 namespace Entities.Concrete
 {
-    public class Resolution
+    public class Engineer
     {
         [Key]
         public int Id { get; set; }
         public string Name { get; set; }
-        public DateTime? CreatedAt { get; set; }
-        public DateTime? LastUpdatedAt { get; set; }
-        public string? CreatedBy { get; set; }
-        public bool IsActive { get; set; } 
+        public ICollection<Job> Job { get; set; }
     }
 }

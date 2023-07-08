@@ -8,7 +8,6 @@ namespace Entities.DTOs.Resolution
 {
     public class UpdateResolutionDTO
     {
-        public int Id { get; set; }
         public string Name { get; set; }
     }
 }

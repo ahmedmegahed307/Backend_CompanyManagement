@@ -7,14 +7,15 @@ using System.Threading.Tasks;
 
 namespace Entities.Concrete
 {
-    public class Resolution
+    public class JobSubType
     {
         [Key]
         public int Id { get; set; }
         public string Name { get; set; }
+        public bool isActive { get; set; }
         public DateTime? CreatedAt { get; set; }
-        public DateTime? LastUpdatedAt { get; set; }
-        public string? CreatedBy { get; set; }
-        public bool IsActive { get; set; } 
+        public DateTime? UpdatedAt { get; set; }
+
+       
     }
 }

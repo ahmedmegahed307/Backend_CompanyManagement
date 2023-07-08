@@ -18,7 +18,7 @@ namespace Business.Helper.AutoMapper
 
             CreateMap<Resolution, AddResolutionDTO>().ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name)).ReverseMap();
             CreateMap<Resolution, UpdateResolutionDTO>().ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name))
-                .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id))
+                
                 .ReverseMap();
 
         }
