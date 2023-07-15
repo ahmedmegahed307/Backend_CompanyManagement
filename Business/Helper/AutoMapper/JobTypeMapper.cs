@@ -18,9 +18,6 @@ namespace Business.Helper.AutoMapper
             CreateMap<JobType, JobTypeListDTO>()
                .ForMember(dest => dest.JobSubType, opt => opt.MapFrom(src => src.JobSubType.Name))
                .ReverseMap();
-            CreateMap<JobType, UpdateJobTypeDTO>()
-              .ForMember(dest => dest.JobSubTypeId, opt => opt.MapFrom(src => src.JobSubTypeId))
-              .ReverseMap();
 
             CreateMap<JobType, AddJobTypeDTO>().ReverseMap();
             CreateMap<JobType, UpdateJobTypeDTO>().ReverseMap();
