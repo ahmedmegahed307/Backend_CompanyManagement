@@ -33,30 +33,22 @@ namespace WebAPI.Controllers.Settings
         public void AddResolution(AddResolutionDTO resolutionDTO)
         {
             _resolutionService.AddResolution(resolutionDTO);
-            
+
 
         }
-
-        //[HttpPost]
-        //[Route("UpdateResolution")]
-        //public void UpdateResolution(UpdateResolutionDTO resolutionDTO)
-        //{
-        //    _resolutionService.UpdateResolution(resolutionDTO);
-
-        //}
 
 
         // PUT /api/resolutions/{id}
         [HttpPut("{id}")]
 
-        public IActionResult UpdateResolution(int id,UpdateResolutionDTO updatedResolution)
+        public IActionResult UpdateResolution(int id, UpdateResolutionDTO updatedResolution)
         {
-            _resolutionService.UpdateResolution(id,updatedResolution);
+            _resolutionService.UpdateResolution(id, updatedResolution);
             return Ok();
 
         }
         [HttpDelete("{id}")]
-       
+
         public void DeleteResolution(int id)
         {
             _resolutionService.DeleteResolution(id);

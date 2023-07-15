@@ -8,6 +8,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Transactions;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace DataAccess.Concrete
 {
@@ -18,6 +19,7 @@ namespace DataAccess.Concrete
 
         public List<TEntity> GetAll(Expression<Func<TEntity, bool>> filter = null)
         {
+          
             using (TContext context = new TContext())
             {
                 return filter == null
@@ -25,6 +27,8 @@ namespace DataAccess.Concrete
                     : context.Set<TEntity>().Where(filter).ToList();
             }
         }
+       
+
         public void Add(TEntity entity)
         {
             using (TContext context = new TContext())

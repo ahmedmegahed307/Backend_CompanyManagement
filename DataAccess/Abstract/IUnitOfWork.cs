@@ -12,6 +12,8 @@ namespace DataAccess.Abstract
     {
         CompanyContext Context { get; }
         IBaseRepository<Resolution> Resolutions {  get; }
+        IBaseRepository<Client> Clients {  get; }
+        IBaseRepository<User> Users{  get; }
         void Save();
     }
 }

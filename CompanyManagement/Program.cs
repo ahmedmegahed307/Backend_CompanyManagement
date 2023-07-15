@@ -10,10 +10,8 @@ using Business.Helper.AutoMapper;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 
 builder.Services.AddDbContext<CompanyContext>((serviceProvider, options) =>
@@ -25,12 +23,22 @@ builder.Services.AddDbContext<CompanyContext>((serviceProvider, options) =>
 builder.Services.AddSwaggerGen();
 builder.Services.AddCors();
 
-//Dependency Injection
-builder.Services.AddScoped<IResolutionService, ResolutionService>();
-builder.Services.AddScoped<IResolutionDal, ResolutionDal>();
+//*****Dependency Injection*****//
+
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddAutoMapper(typeof(ResolutionMapper));
 
+//Resolution
+builder.Services.AddScoped<IResolutionService, ResolutionService>();
+builder.Services.AddScoped<IResolutionDal, ResolutionDal>();
+
+//Client
+builder.Services.AddScoped<IClientService, ClientService>();
+builder.Services.AddScoped<IClientDal, ClientDal>();
+
+//User
+builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IUserDal, UserDal>();
 
 
 

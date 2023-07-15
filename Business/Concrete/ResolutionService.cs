@@ -48,12 +48,6 @@ namespace Business.Concrete
             return resolutionDTOs;
         }
 
-        //public void UpdateResolution(UpdateResolutionDTO resolutionDTO)
-        //{
-        //    var existingResolution = _resolutionDal.Get(a => a.Id == resolutionDTO.Id);
-        //    existingResolution.Name = resolutionDTO.Name;
-        //    _resolutionDal.Update(existingResolution);
-        //}
 
         public void UpdateResolution(int  id, UpdateResolutionDTO updatedResolution)
         {
