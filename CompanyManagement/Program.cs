@@ -40,6 +40,14 @@ builder.Services.AddScoped<IClientDal, ClientDal>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IUserDal, UserDal>();
 
+//JobType
+builder.Services.AddScoped<IJobTypeService, JobTypeService>();
+builder.Services.AddScoped<IJobTypeDal, JobTypeDal>();
+
+//JobSubType
+builder.Services.AddScoped<IJobSubTypeService, JobSubTypeService>();
+builder.Services.AddScoped<IJobSubTypeDal, JobSubTypeDal>();
+
 
 
 var app = builder.Build();

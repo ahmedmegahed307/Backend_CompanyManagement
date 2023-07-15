@@ -27,8 +27,8 @@ namespace DataAccess.Concrete
                     : context.Set<TEntity>().Where(filter).ToList();
             }
         }
-       
 
+       
         public void Add(TEntity entity)
         {
             using (TContext context = new TContext())

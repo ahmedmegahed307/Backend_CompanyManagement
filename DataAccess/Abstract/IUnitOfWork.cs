@@ -14,6 +14,8 @@ namespace DataAccess.Abstract
         IBaseRepository<Resolution> Resolutions {  get; }
         IBaseRepository<Client> Clients {  get; }
         IBaseRepository<User> Users{  get; }
+        IBaseRepository<JobType> JobTypes{  get; }
+        IBaseRepository<JobSubType> JobSubTypes{  get; }
         void Save();
     }
 }

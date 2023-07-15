@@ -15,6 +15,8 @@ namespace DataAccess.Concrete
         private IBaseRepository<Resolution> resolutions = null;
         private IBaseRepository<Client> clients = null;
         private IBaseRepository<User> users = null;
+        private IBaseRepository<JobType> jobTypes = null;
+        private IBaseRepository<JobSubType> jobSubTypes = null;
 
         public readonly CompanyContext context;
 
@@ -55,6 +57,32 @@ namespace DataAccess.Concrete
                 return users;
             }
         }
+        public IBaseRepository<JobType> JobTypes
+        {
+            get
+            {
+                if (jobTypes == null)
+                {
+                    jobTypes = new BaseRepository<JobType, CompanyContext>();
+
+                }
+                return jobTypes;
+            }
+        }
+        public IBaseRepository<JobSubType> JobSubTypes
+        {
+            get
+            {
+                if (jobSubTypes == null)
+                {
+                    jobSubTypes = new BaseRepository<JobSubType, CompanyContext>();
+
+                }
+                return jobSubTypes;
+            }
+        }
+
+
         public void Dispose()
         {
             if(this.context != null)
